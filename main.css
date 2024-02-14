@@ -49,10 +49,19 @@ video {
     height: 100%;
 }
 
+.birthday-wishes {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
 h3 {
-    text-align: center;
-    color: #333;
-    font-size: 1.4rem;
+    color: #c00707;
+    font-size: 45px;
+    background-color: rgb(240, 221, 221, 0.5);
+    padding: 0 20px;
+    height: 60px;
+    border-radius: 20px;
 }
 
 p {
@@ -256,11 +265,13 @@ p {
     }
     h3 {
         color: #c00707;
-        font-size: 45px;
+        font-size: 30px;
         background-color: rgb(240, 221, 221, 0.5);
         padding: 0 20px;
         height: 60px;
+        text-align: center;
         border-radius: 20px;
+        line-height: 60px;
     }
     p {
         color: #333;
@@ -300,8 +311,14 @@ p {
     .letter {
         width: 85%;
     }
+    .birthday-wishes {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
     h3 {
-        color: #333;
+        color: #f70707;
+        line-height: 60px;
     }
     p {
         color: #333;
