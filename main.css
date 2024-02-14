@@ -1,0 +1,413 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+h1 {
+    z-index: 10;
+    color: #b78727;
+    position: relative;
+    font-size: 2.6rem;
+    text-align: center;
+    padding: 0px 10px;
+    text-transform: uppercase;
+    margin-top: 60px;
+}
+
+.video-background {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: auto;
+}
+
+video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(155, 93, 31, 0.1);
+    z-index: 4;
+    width: 100%;
+    height: 100%;
+}
+
+h3 {
+    text-align: center;
+    color: #333;
+    font-size: 1.4rem;
+}
+
+p {
+    text-align: center;
+    color: #333;
+    font-size: 1.1rem;
+    padding: 20px 10px;
+}
+
+.letter-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 600px;
+    max-width: 800px;
+}
+
+.envelop-wrapper {
+    position: relative;
+    width: 400px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.envelope {
+    border-radius: 25px;
+    background-color: transparent;
+    box-shadow: 10px 10px 30px rgba(245, 124, 3, 0.4);
+    /* background-image: url(/img/btw.jpg); */
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border: 1px solid rgb(189, 154, 116);
+}
+
+.envelope-open {
+    position: absolute;
+    border-top: 170px solid rgb(219, 121, 17);
+    border-right: 200px solid transparent;
+    border-left: 200px solid transparent;
+    top: 0;
+    transform-origin: top;
+    border-radius: 60px;
+    margin-top: 10px;
+    z-index: 3;
+    transition: transform 0.25s linear;
+}
+
+.envelope::after {
+    content: '';
+    position: absolute;
+    border-bottom: 100px solid rgba(245, 124, 3, 0.6);
+    border-right: 190px solid rgba(245, 124, 3, 0.9);
+    border-left: 190px solid rgba(245, 124, 3, 0.8);
+    border-top: 160px solid transparent;
+    z-index: 12;
+    bottom: 0;
+    transform-origin: bottom;
+    border-radius: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    z-index: 5;
+}
+
+.letter {
+    width: 90%;
+    height: 99%;
+    background-image: url(./img/asia.JPG);
+    border-radius: 10px;
+    transition: all 3s;
+    padding: 20px 10px;
+    box-shadow: 0 0 10px rgb(46, 44, 44);
+    position: absolute;
+    bottom: 12px;
+    z-index: 1;
+    opacity: 0;
+    background-position: center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.heart {
+    width: 80px;
+    height: 50px;
+    transition: all 3s ease-in-out;
+    animation: heartBeat 1.3s linear infinite;
+    cursor: pointer;
+    z-index: 5;
+    position: absolute;
+    left: 39%;
+    top: 43%;
+    transition: all 3s;
+}
+
+
+/*  position: absolute;
+    left: 39%;
+    top: 43%; */
+
+.heart:before,
+.heart:after {
+    position: absolute;
+    content: '';
+    left: 35px;
+    top: 0;
+    width: 30px;
+    height: 40px;
+    background: tomato;
+    border-radius: 30px 30px 0 0;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+    border-right: 4px solid wheat;
+    cursor: pointer;
+    z-index: 5;
+    box-shadow: 3px 3px 4px black;
+    transition: all 3s;
+}
+
+.heart:after {
+    left: 15px;
+    bottom: 10px;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+    cursor: pointer;
+    z-index: 5;
+    height: 52px;
+}
+
+@keyframes heartBeat {
+    from {
+        transform: scale(0.6);
+    }
+    to {
+        transform: scale(0.9);
+    }
+}
+
+@media screen and (max-width: 1400px) {
+    .video-background {
+        height: 100vh;
+        width: 100vw;
+    }
+    video {
+        object-fit: cover;
+    }
+    h1 {
+        font-size: 1.6rem;
+        margin-bottom: 0px;
+    }
+}
+
+@keyframes heartBeatClose {
+    from {
+        transform: scale(0.9);
+        transition: all 3s;
+    }
+    to {
+        transform: scale(0.6);
+        transition: all 3s;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .envelope {
+        width: 90%;
+        height: 240px;
+    }
+    .envelope-open {
+        border-top: 115px solid rgb(219, 121, 17);
+        border-right: 170px solid transparent;
+        border-left: 170px solid transparent;
+        border-radius: 40px;
+        transition: transform 0.25s linear;
+    }
+    .envelope::after {
+        border-bottom: 100px solid rgba(239, 129, 20, 084);
+        border-right: 165px solid rgba(239, 129, 20, 0.84);
+        border-left: 165px solid rgba(239, 129, 20, 0.84);
+        border-top: 110px solid transparent;
+        border-radius: 20px;
+    }
+    .letter {
+        width: 85%;
+    }
+    .birthday-wishes {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        ;
+    }
+    h3 {
+        color: #c00707;
+        font-size: 45px;
+        background-color: rgb(240, 221, 221, 0.5);
+        padding: 0 20px;
+        height: 60px;
+        border-radius: 20px;
+    }
+    p {
+        color: #333;
+    }
+    h1 {
+        color: #b78727;
+        font-size: 1.9rem;
+        margin-top: 0px;
+    }
+}
+
+
+/* Na samsung Fold */
+
+@media screen and (max-width: 400px) {
+    .letter-container {
+        width: 70%;
+    }
+    .envelope {
+        width: 70%;
+        height: 220px;
+    }
+    .envelope-open {
+        border-top: 95px solid rgb(219, 121, 17);
+        border-right: 130px solid transparent;
+        border-left: 130px solid transparent;
+        border-radius: 30px;
+        transition: transform 0.25s linear;
+    }
+    .envelope::after {
+        border-bottom: 95px solid rgba(239, 129, 20, 084);
+        border-right: 130px solid rgba(239, 129, 20, 0.84);
+        border-left: 130px solid rgba(239, 129, 20, 0.84);
+        border-top: 95px solid transparent;
+        border-radius: 20px;
+    }
+    .letter {
+        width: 85%;
+    }
+    h3 {
+        color: #333;
+    }
+    p {
+        color: #333;
+    }
+    h1 {
+        color: #b78727;
+        font-size: 1.5rem;
+        margin-top: 0px;
+    }
+}
+
+@media screen and (width: 280px) {
+    .letter-container {
+        width: 70%;
+    }
+    .envelope {
+        width: 60%;
+        height: 180px;
+    }
+    .envelope-open {
+        border-top: 65px solid rgb(219, 121, 17);
+        border-right: 110px solid transparent;
+        border-left: 110px solid transparent;
+        border-radius: 30px;
+        transition: transform 0.25s linear;
+    }
+    .envelope::after {
+        border-bottom: 65px solid rgba(239, 129, 20, 084);
+        border-right: 110px solid rgba(239, 129, 20, 0.84);
+        border-left: 110px solid rgba(239, 129, 20, 0.84);
+        border-top: 95px solid transparent;
+        border-radius: 20px;
+    }
+    .letter {
+        width: 85%;
+    }
+    h3 {
+        color: #333;
+    }
+    p {
+        color: #333;
+    }
+    h1 {
+        color: #b78727;
+        font-size: 1.5rem;
+        margin-top: 0px;
+    }
+}
+
+
+/* Koniec samsung fold */
+
+.active {
+    bottom: 190px;
+    transition: all 3s;
+    display: flex;
+    z-index: 4;
+    opacity: 1;
+}
+
+.heart-active {
+    position: absolute;
+    left: 11%;
+    top: 63%;
+    animation: heartBeatClose 3s infinite;
+    transition: all 3s;
+    transition-delay: 0.2s;
+}
+
+.change {
+    display: flex;
+    transition: all 2.5s;
+    transform: translateY(-120px);
+}
+
+.changeTwo {
+    transition: all 5s;
+    transition-delay: 1.4s;
+}
+
+.open {
+    transform: rotateX(180deg);
+    transition-delay: 0.4s;
+    top: -10px;
+    transition: all 0.4s;
+}
+
+.close {
+    transform: rotateX(0deg);
+    transition-delay: 2s;
+    top: 0;
+}
+
+.circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: gold;
+    z-index: 5;
+    border: 1px solid rgb(8, 8, 8);
+    box-shadow: 0px 10px 10px black;
+    cursor: pointer;
+    position: relative;
+    top: 0;
+}
+
+.active-heart {
+    transition-delay: 1.2s;
+}
